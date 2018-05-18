@@ -1,0 +1,215 @@
+﻿@{
+    ViewBag.Title = "首页";
+}
+
+@section scripts
+{
+    <script src="/content/Js/tab.js"></script>
+}
+<!--banner-->
+<div class="I_banner">
+    <div class="I_anniu">
+        <p>
+            <button class="BT3" onclick="window.open('/Account/login')">登入帐号</button>
+        </p>
+    </div>
+</div>
+<!--新闻和交易-->
+<div class="I_news I_con">
+    <div class="IN_left">
+        <div class="Title1">
+            <div class="left">
+                <strong>
+                    <a href="/News/" target="_blank">最新动态</a>
+                </strong>
+            </div>
+            <div class="right">
+                <a href="/News/" target="_blank">更多</a>&gt;&gt;
+            </div>
+            <div class="clear"></div>
+        </div>
+        <ul>
+            @foreach (var item in (ViewBag.News as List<EIC.Models.EIC.z_noticeBean>))
+            {
+                <li>
+                    <strong>
+                        <a href="/News/Content/@item.id" target="_blank">@Net.Common.StringHelper.SubString(item.art_titile, 22)</a>
+                    </strong>
+                    @item.decription
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="IN_right">
+        <div class="Title1">
+            <div class="left">
+                <strong>
+                    <a href="/sales/" target="_blank">市场行情</a>
+                </strong>
+
+            </div>
+            <div class="right">
+                <b style="margin-right:200px; font-size:16px">今日价格：$@ViewBag.Price</b>
+                <a href="/sales/" target="_blank">更多</a>&gt;&gt;
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="J_tab">
+            <div id="J_top">
+                <a class="J_hover" href="javascript:;">日</a>
+                <a href="javascript:;">周</a>
+                <a href="javascript:;">月</a>
+                <a href="javascript:;">年</a>
+                <div class="clear"></div>
+            </div>
+            <div id="J_cont" class="J_cont">
+                <div class="J_cbox">
+                    <table border="0" cellpadding="0" cellspacing="1">
+                        @foreach (var item in ViewBag.Sales1 as List<EIC.Models.EIC.t_matchBean>)
+                        {
+                            <tr>
+                                <td width="30%" class="TB1">@item.createDate</td>
+                                <td width="40%">
+                                    <span>交易价格：</span>@item.actualAmount
+                                </td>
+                                <td width="30%">
+                                    <span>数量：</span>@item.sum
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                <div class="J_cbox">
+                    <table border="0" cellpadding="0" cellspacing="1">
+                        @foreach (var item in ViewBag.Sales2 as List<EIC.Models.EIC.t_matchBean>)
+                        {
+                            <tr>
+                                <td width="30%" class="TB1">@item.createDate</td>
+                                <td width="40%">
+                                    <span>交易价格：</span>@item.actualAmount
+                                </td>
+                                <td width="30%">
+                                    <span>数量：</span>@item.sum
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                <div class="J_cbox">
+                    <table border="0" cellpadding="0" cellspacing="1">
+                        @foreach (var item in ViewBag.Sales3 as List<EIC.Models.EIC.t_matchBean>)
+                        {
+                            <tr>
+                                <td width="30%" class="TB1">@item.createDate</td>
+                                <td width="40%">
+                                    <span>交易价格：</span>@item.actualAmount
+                                </td>
+                                <td width="30%">
+                                    <span>数量：</span>@item.sum
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+                <div class="J_cbox">
+                    <table border="0" cellpadding="0" cellspacing="1">
+                        @foreach (var item in ViewBag.Sales4 as List<EIC.Models.EIC.t_matchBean>)
+                        {
+                            <tr>
+                                <td width="30%" class="TB1">@item.createDate</td>
+                                <td width="40%">
+                                    <span>交易价格：</span>@item.actualAmount
+                                </td>
+                                <td width="30%">
+                                    <span>数量：</span>@item.sum
+                                </td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+<!--关于我们-->
+<div class="I_about">
+    <div class="April_title">
+        <strong>
+            <a href="about.html" target="_blank">关于EIC</a>
+        </strong>
+    </div>
+    <div class="I_con">
+        <div class="I_text">
+            平台使用多重技术安全防护打造金融级别的专业数字资产交易网，致力于为数字资产投资爱好者创造一个安全、舒适、快捷的交易渠道。
+            <br> 公司核心成员由拥有长期的互联网和金融领域产品研发和运营经验及具有国际化视角的专业人士组成，
+            <br> 从领导层到一线员工均秉承“用心服务每一刻”的理念，以用户需求为导向，以提升用户体验为核心，为全球用户提供最可靠、最便捷的数字资产服务。
+            <br> 为用户提供实时、快捷、高效的服务，使用户的交易畅通无阻。服务器SLB均衡与同时备份，确保用户与资金安全无忧。
+        </div>
+        <div class="IBA_con">
+            <ul>
+                <li>
+                    <img src="/Content/images/tip_1.png" width="186" height="189" alt="" />
+                    <strong>系统可靠</strong>
+                    <p>公司拥有顶级的风控、反欺诈技术，为您的资金保驾护航！</p>
+                </li>
+                <li>
+                    <img src="/Content/images/tip_2.png" width="186" height="189" alt="" />
+                    <strong>资金安全</strong>
+                    <p>钱包多层加密，资金第三方托管，确保安全！</p>
+                </li>
+                <li>
+                    <img src="/Content/images/tip_3.png" width="186" height="189" alt="" />
+                    <strong>用户第一</strong>
+                    <p>一切为了用户，我们为用户打造极致数字资产交易体验！</p>
+                </li>
+                <li>
+                    <img src="/Content/images/tip_4.png" width="186" height="189" alt="" />
+                    <strong>专业团队</strong>
+                    <p>专业客服团队24小时在线，可多渠道接入咨询！</p>
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+</div>
+<!--投资方-->
+<div class="I_touzi">
+    <div class="April_title">
+        <strong>投资方</strong>
+    </div>
+    <div class="I_con">
+        <div class="I_text">优质的合作伙伴，为您提供全方位的服务。</div>
+        <div class="IT_con">
+            <ul>
+                <li>
+                    <img src="/Content/images/s001.jpg" width="91" height="79" alt="" />
+                    <p>Atercger Quckgog</p>
+                </li>
+                <li>
+                    <img src="/Content/images/s002.jpg" width="91" height="79" alt="" />
+                    <p>Cofor Gunoct</p>
+                </li>
+                <li>
+                    <img src="/Content/images/s003.jpg" width="91" height="79" alt="" />
+                    <p>Oenpio Areoiker</p>
+                </li>
+                <li>
+                    <img src="/Content/images/s004.jpg" width="91" height="79" alt="" />
+                    <p>Pseqiu Coritre</p>
+                </li>
+                <li>
+                    <img src="/Content/images/s005.jpg" width="91" height="79" alt="" />
+                    <p>Oberis Aapaide</p>
+                </li>
+                <li>
+                    <img src="/Content/images/s006.jpg" width="91" height="79" alt="" />
+                    <p>Baior Darter</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
