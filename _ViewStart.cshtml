@@ -1,0 +1,14 @@
+﻿@{
+    if (Request.Path.ToLower().Contains("usercenter"))
+    {
+        Layout = "~/Views/Shared/_LayoutUserCenter.cshtml";
+    }
+    else if (Request.Path.ToLower().Contains("sales"))
+    {
+        Layout = "~/Views/Shared/_LayoutSales.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
